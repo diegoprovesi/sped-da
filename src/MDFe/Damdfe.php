@@ -399,7 +399,7 @@ class Damdfe extends DaCommon
         ];
         if (!isset($this->mdfeProc)) {
             $resp['status'] = false;
-            $resp['message'][] = 'MDFe NÃO PROTOCOLADA';
+            $resp['message'][] = ''; //MDFe NÃO PROTOCOLADA
         } else {
             if ($this->getTagValue($this->ide, "tpAmb") == '2') {
                 $resp['status'] = false;
