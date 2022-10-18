@@ -1580,7 +1580,14 @@ class Dacte extends DaCommon
             'size' => 5,
             'style' => '');
         $this->pdf->textBox($x + 20, $y, $w, $h, $texto, $aFont, 'T', 'L', 0, '');
-        $texto = number_format($qCarga, 3, ",", ".");
+        $qCarga_baseCalculo = 0;
+        foreach ($this->infQ as $infQ) {
+            if (in_array($this->getTagValue($infQ, "tpMed"), array('PESO BASE DE CALCULO'))) {
+                $qCarga_baseCalculo += $this->getTagValue($infQ, "cUnid") == '01' ?
+                    $this->getTagValue($infQ, "qCarga") : $this->getTagValue($infQ, "qCarga") * 1000;
+            }
+        }
+        $texto = number_format($qCarga_baseCalculo, 3, ",", "."); //PESO BASE CÁLCULO (KG)
         $aFont = array(
             'font' => $this->fontePadrao,
             'size' => 7,
