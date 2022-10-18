@@ -1555,7 +1555,7 @@ class Dacte extends DaCommon
         //01 = KG (QUILOS)
         $qCarga = 0;
         foreach ($this->infQ as $infQ) {
-            if (in_array($this->getTagValue($infQ, "cUnid"), array('01', '02'))) {
+            if (in_array($this->getTagValue($infQ, "tpMed"), array('KILOGRAMA'))) {
                 $qCarga += $this->getTagValue($infQ, "cUnid") == '01' ?
                     $this->getTagValue($infQ, "qCarga") : $this->getTagValue($infQ, "qCarga") * 1000;
             }
