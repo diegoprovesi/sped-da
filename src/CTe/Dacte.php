@@ -33,6 +33,7 @@ class Dacte extends DaCommon
     protected $infCte;
     protected $infCteComp;
     protected $infCteAnu;
+    protected $infCteSub;
     protected $chaveCTeRef;
     protected $tpCTe;
     protected $ide;
@@ -135,8 +136,11 @@ class Dacte extends DaCommon
             // adicionar outros modais
             $this->infCteComp = $this->dom->getElementsByTagName("infCteComp")->item(0);
             $this->infCteAnu = $this->dom->getElementsByTagName("infCteAnu")->item(0);
+            $this->infCteSub = $this->dom->getElementsByTagName("infCteSub")->item(0);
             if ($this->tpCTe == 1) {
                 $this->chaveCTeRef = $this->getTagValue($this->infCteComp, "chCTe");
+            } elseif ($this->tpCTe == 3) {
+                $this->chaveCTeRef = $this->getTagValue($this->infCteSub, "chCTe");
             } else {
                 $this->chaveCTeRef = $this->getTagValue($this->infCteAnu, "chCte");
             }
