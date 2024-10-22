@@ -138,9 +138,9 @@ class Dacte extends DaCommon
             $this->infCteAnu = $this->dom->getElementsByTagName("infCteAnu")->item(0);
             $this->infCteSub = $this->dom->getElementsByTagName("infCteSub")->item(0);
             if ($this->tpCTe == 1) {
-                $this->chaveCTeRef = $this->getTagValue($this->infCteComp, "chCTe");
+                $this->chaveCTeRef = $this->getTagValue($this->infCteComp, "chCte");
             } elseif ($this->tpCTe == 3) {
-                $this->chaveCTeRef = $this->getTagValue($this->infCteSub, "chCTe");
+                $this->chaveCTeRef = $this->getTagValue($this->infCteSub, "chCte");
             } else {
                 $this->chaveCTeRef = $this->getTagValue($this->infCteAnu, "chCte");
             }
